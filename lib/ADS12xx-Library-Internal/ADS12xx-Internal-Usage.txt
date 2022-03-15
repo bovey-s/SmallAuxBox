@@ -1,0 +1,21 @@
+Layout for ADS1256 Code:
+
+"ADS1256_ATMEGA_BASE.ino" 
+ - Interfaces with the ads1256 through the ATEMGA328P
+ - Performs single channel measurement (AIN0/AIN1) on LCD 2.1
+ - As of writing, Harvinder is adding LCD support to this version
+ - Must define "ATMEGA" and comment out "ESP32HUZZAH" in ADS12xx.h to use the library with the ATMEGA
+
+"ADS1256_BASE_CODE.ino"
+ - Interfaces with the asd1256 through the ESP32 HUZZAH
+ - Has the ability to perform cyclic measurements or single-channel measurements
+ - Cyclic measurements is the default
+ - To change to single measurements: 
+	* Uncomment (send) the STANDBY command in setup
+	* Call measureSingle() versus measureCycle()
+	* Assign the output of measureSingle() to something (i.e. Resistances[0] = measureSingle(); )
+	* Update handleSerialInput() to print only Resistances[0] versus cycling through Resistances[i] for i in [0:3]
+ - The sampling rate can be changed as it is a parameter in the adcObject->begin() fxn
+ - The ESP32 uses the "TFT_eSPI" library to drive the LCD, which requires a setup file: "User_Setup.h" defined in the library
+	* There is an organization fork that you can pull from (https://github.com/Mesomat-inc/TFT_eSPI)
+	* Additionally, this library is included as a submodule in the Arduino libraries repo, so you can just pull that as an alternative (https://github.com/Mesomat-inc/libraries.git)

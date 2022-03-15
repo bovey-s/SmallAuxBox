@@ -1,0 +1,16 @@
+{
+  "name": "ADS12-xx-Library",
+  "keywords": "ADC, ADS1248, ADS1245, ADS1247, ADS1256, ADS1255, ADS",
+  "description": "Library for the TI ADS Line of 24bit ADCs",
+  "homepage": "https://github.com/Mesomat-inc/ADS12xx-Library-Internal.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mesomat-inc/ADS12xx-Library-Internal.git"
+  },
+  "authors": {
+    "name": "liamward14",
+    "email": "liam.ward144@gmail.com"
+  },
+  "frameworks": "arduino, esp32",
+  "platforms": "*"
+}
